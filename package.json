@@ -1,0 +1,44 @@
+{
+  "name": "sem-stub",
+  "version": "0.0.1",
+  "description": "Swagger middleware and mocks for Express",
+  "keywords": [
+    "express",
+    "swagger",
+    "middleware",
+    "mock",
+    "fake",
+    "stub",
+    "rest",
+    "api",
+    "json"
+  ],
+  "author": {
+    "name": "George"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "jshint . --verbose && jscs . --verbose",
+    "build": "npm run lint",
+    "mocha": "mocha --bail --recursive tests/fixtures tests/specs",
+    "istanbul": "istanbul cover _mocha --dir coverage/node -- --bail --recursive tests/fixtures tests/specs",
+    "test": "npm run istanbul",
+    "upgrade": "ncu \"/(!multer)/\" --upgradeAll && npm update",
+    "bump": "bump --prerelease --tag --push --all",
+    "release": "npm run upgrade && npm run build && npm test && npm run bump && npm publish",
+    "start": "cd samples && node sample2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GeorgeZhai/sem-stub.git"
+  },
+  "dependencies": {
+    "swagger-express-middleware": ">=1.0.0-alpha.12",
+    "express": "4.x"
+  },
+  "engines": {
+    "node": ">=0.10.36",
+    "npm": ">=2.0"
+  },
+}
